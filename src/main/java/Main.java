@@ -15,8 +15,9 @@ public class Main  {
         System.out.println(result.concat(mapper.writeValueAsString(someData2)));
 
 
-        SomeData test1 = mapper.readValue(new File("SomeData.json"), SomeData.class);
-        System.out.println(test1.toString());
-
+        List<SomeData> dataList = mapper.readValue(new File("SomeData.json"), new TypeReference<List<SomeData>>(){});
+        for (SomeData item: dataList ) {
+            System.out.println(item.toString()) ;
+        }
     }
 }
